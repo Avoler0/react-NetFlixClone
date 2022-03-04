@@ -108,7 +108,28 @@ function Home() {
       },
     },
   };
-
+  
+  const Info = styled(motion.div)`
+    padding:10px;
+    background-color: ${props => props.theme.black.lighter};
+    opacity:0;
+    position:absolute;
+    width:100%;
+    bottom:0;
+    h4{
+      text-align:center;
+      font-size:18px;
+    }
+  `;
+  const infoVariants = {
+    hover: {
+      opacity:1,
+      transition:{
+        delay:0.4,
+        duration:0.3,
+      }
+    }
+  }
   const toggleLeaving = () => setLeaving((prev) => !prev);
   const [leaving, setLeaving] = useState(false);
   return (
@@ -144,7 +165,11 @@ function Home() {
                     transition={{ type: "tween" }}
                     bgPhoto={makeImagePath(movie.backdrop_path , "w500")}
                     
-                    />
+                    >
+                      <Info variants={infoVariants} >
+                        <h4>{movie.title}</h4>  
+                      </Info>
+                  </ Box>
                 ))}
               </Row>
             </AnimatePresence>
