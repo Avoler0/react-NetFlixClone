@@ -1,5 +1,3 @@
-# 백엔드 깃허브
-https://github.com/ApostleB/lol-matching-express-restAPI
 
 
 
